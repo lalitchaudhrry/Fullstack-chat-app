@@ -36,9 +36,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen justify-center items-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login to ChatApp</h2>
+    <div className="flex h-screen justify-center items-center bg-light">
+      <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md border-t-4 border-accent">
+        <h2 className="text-2xl font-bold mb-4 text-center text-primary">
+          Login to ChatApp
+        </h2>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
@@ -47,27 +49,27 @@ export default function LoginPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className="w-full mb-4 px-4 py-2 border rounded"
+          className="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="w-full mb-4 px-4 py-2 border rounded"
+          className="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secondary"
         />
 
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          className="w-full bg-secondary text-white py-2 rounded-lg hover:bg-accent transition"
         >
           Login
         </button>
 
         <p className="text-center mt-4 text-sm">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <span
-            className="text-blue-600 hover:underline cursor-pointer"
+            className="text-secondary hover:underline cursor-pointer"
             onClick={() => navigate("/signup")}
           >
             Sign up
@@ -77,7 +79,7 @@ export default function LoginPage() {
         <p className="text-center mt-2 text-sm">
           Or{" "}
           <span
-            className="text-green-600 hover:underline cursor-pointer"
+            className="text-accent hover:underline cursor-pointer"
             onClick={() => navigate("/chat")}
           >
             continue as Guest

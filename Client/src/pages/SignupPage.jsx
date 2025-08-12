@@ -10,14 +10,9 @@ export default function SignupPage() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-  
-    // collect user input from state
-    const userData = {
-      username,
-      email,
-      password
-    };
-  
+
+    const userData = { username, email, password };
+
     try {
       const res = await axios.post("http://192.168.1.116:5000/api/auth/signup", userData);
       alert("Signup successful!");
@@ -28,46 +23,48 @@ export default function SignupPage() {
       alert("Signup failed");
     }
   };
-  
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-light">
+      <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md border-t-4 border-accent">
+        <h2 className="text-2xl font-bold mb-6 text-center text-primary">Sign Up</h2>
+        
         <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full mb-4 px-4 py-2 border rounded"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-         <input
-          type="email"
-          placeholder="Email"
-          className="w-full mb-4 px-4 py-2 border rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full mb-4 px-4 py-2 border rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
+          <input
+            type="text"
+            placeholder="Username"
+            className="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secondary"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secondary"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full mb-4 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secondary"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="w-full bg-secondary text-white py-2 rounded-lg hover:bg-accent transition"
           >
             Sign Up
           </button>
         </form>
+
         <p className="mt-4 text-sm text-center">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
-            className="text-blue-600 cursor-pointer hover:underline"
+            className="text-secondary cursor-pointer hover:underline"
           >
             Login
           </span>
